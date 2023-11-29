@@ -18,13 +18,13 @@ function createUser(req, res) {
 
         fs.readFile(usersDbPath, "utf-8", (err, data) => {
             const existingUsers = JSON.parse(data);
-            console.log(existingUsers);
+            console.log(newUser, existingUsers);
         })
     })
 }
 
 // READ
-function getAllUsers(req, res) {
+function getAllUsers() {
     return new Promise((resolve, reject) => {
         fs.readFile(usersDbPath, 'utf8', (err, users) => {
             if (err) {
@@ -38,9 +38,6 @@ function getAllUsers(req, res) {
 
 function authenticateUser(req, res) {
     return new Promise((resolve, reject) => {
-        if (err) {
-            reject(err)
-        };
 
         const body = [];
     
@@ -59,13 +56,11 @@ function authenticateUser(req, res) {
             const users = await getAllUsers();
             const userFound = users.find(user => user.username === loginDetails.username && user.password === loginDetails.password);
 
+            console.log(userFound);
             if (!userFound) {
                 reject('User not found! Please sign up!');
             };
 
-            if (userFound.password !== loginDetails.password) {
-                reject('Invalid username or password!');
-            }
             resolve();
         });
     });
@@ -76,5 +71,6 @@ function authenticateUser(req, res) {
 
 module.exports = {
     getAllUsers,
-    authenticateUser
+    authenticateUser,
+    createUser
 }

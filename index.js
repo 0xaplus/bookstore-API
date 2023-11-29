@@ -9,19 +9,24 @@ function requestHandler(req, res) {
   res.setHeader("Content-Type", "application/json");
 
   if (req.url === "/books" && req.method === "GET") {
-    usersMethods
-      .authenticateUser(req, res)
-      .then(() => {
-        booksMethods.getAllBooks(req, res);
-      })
-      .catch((err) => {
-        res.writeHead(400);
-        res.end(
-          JSON.stringify({
-            message: err,
-          })
-        );
-      });
+    // You can only view all the books when you're authorized
+    usersMethods.authenticateUser(req, res)
+    .then(() => {
+      booksMethods.getAllBooks(req, res);
+    })
+    .catch((err) => {
+      res.writeHead(400);
+      res.end(
+        JSON.stringify({
+          message: err,
+        })
+      );
+    });
+  } else if (req.url === "/sign-up" && req.method === "POST") {
+    usersMethods.createUser(req, res);
+  }
+   else if (req.url === "/newbook" && req.method === "POST") {
+    booksMethods.addBook(req, res);
   }
   else {
     res.writeHead(404);
@@ -36,5 +41,5 @@ function requestHandler(req, res) {
 // Server
 const server = http.createServer(requestHandler);
 server.listen(port, hostname, () => {
-  console.log(`Server is listening https://${hostname}:${port}/`);
+  console.log(`Server is running on port ${port}`);
 });

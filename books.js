@@ -13,6 +13,12 @@ function getAllBooks(req, res) {
     });
 };
 
+// CREATE
+function addBook(req, res) {
+
+}
+
 module.exports = {
-    getAllBooks
+    getAllBooks,
+    addBook
 }
