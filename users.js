@@ -13,6 +13,7 @@ function createUser(req, res) {
     });
 
     const parsedBody = Buffer.concat(body).toString();
+    console.log(parsedBody);
     res.on('end', () => {
         const newUser = JSON.parse(parsedBody);
 
@@ -65,8 +66,6 @@ function authenticateUser(req, res) {
         });
     });
 };
-
-// CREATE
 
 
 module.exports = {

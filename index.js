@@ -24,11 +24,11 @@ function requestHandler(req, res) {
     });
   } else if (req.url === "/sign-up" && req.method === "POST") {
     usersMethods.createUser(req, res);
-  }
-   else if (req.url === "/newbook" && req.method === "POST") {
-    booksMethods.addBook(req, res);
-  }
-  else {
+  } else if (req.url === "/newbook" && req.method === "POST") {
+    booksMethods.addNewBook(req, res);
+  } else if (req.url.startsWith("/books") && req.method === "DELETE") {
+    booksMethods.deleteBook(req, res);
+  } else {
     res.writeHead(404);
     res.end(
       JSON.stringify({
