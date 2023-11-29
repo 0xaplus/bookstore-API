@@ -1,0 +1,15 @@
+Set up a new nodejs project and do the following:
+Create a new server (i.e index.js)
+Establish the following routes (no libraries allowed) 
+    inside index.js using the specified method:
+    
+Users:
+CreateUser - POST
+AuthenticateUser - POST
+getAllUsers - GET
+Books:
+Create - POST
+Delete - DELETE
+LoanOut - POST
+Return - POST
+Update - PUT

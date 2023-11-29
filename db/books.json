@@ -1,0 +1,30 @@
+[
+  {
+    "title": "JavaScript Fundamentals",
+    "year": 2021,
+    "author": "Brad Traversy",
+    "description": "A beginner guide to JavaScript Programming",
+    "id": "1"
+  },
+  {
+    "title": "The world of Artificial Intelligence",
+    "year": 2020,
+    "author": "Sam Altman",
+    "description": "How A.I is revolutionalising the present day world",
+    "id": "2"
+  },
+  {
+    "title": "Bitcion Whitepaper",
+    "year": 2008,
+    "author": "Satoshi Nakamoto",
+    "description": "The revolution to present-day finance.",
+    "id": "3"
+  },
+  {
+    "title": "Things fall apart",
+    "year": 1954,
+    "author": "Chinua Achebe",
+    "description": "The revolution to present-day finance.",
+    "id": "4"
+  }
+]
