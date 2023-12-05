@@ -5,16 +5,6 @@ const path = require("path");
 const booksDbPath = path.join(__dirname, 'db', 'books.json');
 const booksDB = JSON.parse(fs.readFileSync(booksDbPath, 'utf8'));
 
-// Read from our local DB
-// fs.readFile(usersFilePath, "utf8", (err, data) => {
-//     if (err) {
-//       console.log(err.message);
-//       res.writeHead(500);
-//       res.end("A terrible incident occured. It's your fault!");
-//       return;
-//     }
-// )
-
 // CREATE
 function addNewBook(req, res) {
     const body = [];
