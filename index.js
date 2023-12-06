@@ -10,27 +10,28 @@ function requestHandler(req, res) {
 
   if (req.url === "/books" && req.method === "GET") {
     // You can only view all the books when you're authorized
-    usersMethods.authenticateUser(req, res)
-    .then(() => {
-      booksMethods.getAllBooks(req, res);
-    })
-    .catch((err) => {
-      res.writeHead(400);
-      res.end(
-        JSON.stringify({
-          message: err,
-        })
-      );
-    });
+    usersMethods
+      .authenticateUser(req, res)
+      .then(() => {
+        booksMethods.getAllBooks(req, res);
+      })
+      .catch((err) => {
+        res.writeHead(400);
+        res.end(
+          JSON.stringify({
+            message: err,
+          })
+        );
+      });
   } else if (req.url === "/createuser" && req.method === "POST") {
     usersMethods.createUser(req, res);
   } else if (req.url === "/newbook" && req.method === "POST") {
     booksMethods.addNewBook(req, res);
-  } else if (req.url === '/books/loan' && req.method === "POST") {
+  } else if (req.url === "/books/loan" && req.method === "POST") {
     booksMethods.loanOut(req, res);
-  } else if (req.url === '/books/return' && req.method === "POST") {
+  } else if (req.url === "/books/return" && req.method === "POST") {
     booksMethods.returnBook(req, res);
-  } else if (req.url === '/books' && req.method === "PUT") {
+  } else if (req.url === "/books" && req.method === "PUT") {
     booksMethods.updateBook(req, res);
   } else if (req.url.startsWith("/books") && req.method === "DELETE") {
     booksMethods.deleteBook(req, res);
