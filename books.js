@@ -208,7 +208,6 @@ function returnBook(req, res) {
 }
 
 module.exports = {
-<<<<<<< HEAD
   getAllBooks,
   addNewBook,
   deleteBook,
@@ -216,12 +215,3 @@ module.exports = {
   loanOut,
   returnBook,
 };
-=======
-    getAllBooks,
-    addNewBook,
-    deleteBook,
-    updateBook,
-    loanOut,
-    returnBook
-}
->>>>>>> 52319a5f86030c4b65722bb72bc346cd304f21f6
