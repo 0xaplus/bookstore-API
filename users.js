@@ -13,13 +13,11 @@ function createUser(req, res) {
   });
 
   const parsedBody = Buffer.concat(body).toString();
-  console.log(parsedBody);
   res.on("end", () => {
     const newUser = JSON.parse(parsedBody);
 
     fs.readFile(usersDbPath, "utf-8", (err, data) => {
       const existingUsers = JSON.parse(data);
-      console.log(newUser, existingUsers);
     });
   });
 }
@@ -52,7 +50,6 @@ function authenticateUser(req, res) {
       }
 
       const loginDetails = JSON.parse(parsedBody);
-
       const users = await getAllUsers();
       const userFound = users.find(
         (user) =>
