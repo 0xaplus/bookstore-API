@@ -5,16 +5,6 @@ const path = require("path");
 const booksDbPath = path.join(__dirname, "db", "books.json");
 const booksDB = JSON.parse(fs.readFileSync(booksDbPath, "utf8"));
 
-// Read from our local DB
-// fs.readFile(usersFilePath, "utf8", (err, data) => {
-//     if (err) {
-//       console.log(err.message);
-//       res.writeHead(500);
-//       res.end("A terrible incident occured. It's your fault!");
-//       return;
-//     }
-// )
-
 // CREATE
 function addNewBook(req, res) {
   const body = [];
@@ -218,6 +208,7 @@ function returnBook(req, res) {
 }
 
 module.exports = {
+<<<<<<< HEAD
   getAllBooks,
   addNewBook,
   deleteBook,
@@ -225,3 +216,12 @@ module.exports = {
   loanOut,
   returnBook,
 };
+=======
+    getAllBooks,
+    addNewBook,
+    deleteBook,
+    updateBook,
+    loanOut,
+    returnBook
+}
+>>>>>>> 52319a5f86030c4b65722bb72bc346cd304f21f6
