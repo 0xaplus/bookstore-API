@@ -52,17 +52,7 @@ function getAllBooks(req, res) {
 
 // UPDATE
 
-// const appendBody = function (req) {
-//     const body = [];
-//     req.on('data', chunk => {
-//         body.push(chunk);
-//     });
-
-//     return body;
-// };
-
 function updateBook(req, res) {
-  // appendBody(req)
   const body = [];
   req.on("data", (chunk) => {
     body.push(chunk);
