@@ -1,27 +1,32 @@
 [
-   
-    {
-        "username": "John42",
-        "email": "john123@mail.com",
-        "password": "mypassword1",
-        "id": 1
-    },
-    {
-        "username": "Yemi4life",
-        "email": "yemi4@mail.com",
-        "password": "yemipassword2",
-        "id": 2
-    },
-    {
-        "username": "aplus321",
-        "email": "aplusakorede321@gmail.com",
-        "password": "gurhue87+",
-        "id": 3
-    },
-    {
-        "username": "akorede4321",
-        "email": "akorede23@gmail.com",
-        "password": "AKorpass32",
-        "id": 4
-    }
+  {
+    "username": "John42",
+    "email": "john123@mail.com",
+    "password": "mypassword1",
+    "id": 1
+  },
+  {
+    "username": "Yemi4life",
+    "email": "yemi4@mail.com",
+    "password": "yemipassword2",
+    "id": 2
+  },
+  {
+    "username": "aplus321",
+    "email": "aplusakorede321@gmail.com",
+    "password": "gurhue87+",
+    "id": 3
+  },
+  {
+    "username": "akorede4321",
+    "email": "akorede23@gmail.com",
+    "password": "AKorpass32",
+    "id": 4
+  },
+  {
+    "username": "newuser",
+    "email": "newUser01@mail.com",
+    "password": "mypassword1",
+    "id": 5
+  }
 ]
