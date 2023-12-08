@@ -50,3 +50,5 @@ const server = http.createServer(requestHandler);
 server.listen(port, hostname, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = server;
