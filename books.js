@@ -19,7 +19,7 @@ function addNewBook(req, res) {
     const lastBook = booksDB[booksDB.length - 1];
     const newBookId = Number(lastBook.id) + 1;
 
-    booksDB.push({ ...newBook, id: newBookId });
+    booksDB.push({ ...newBook, id: newBookId, loaned: false });
     fs.writeFile(booksDbPath, JSON.stringify(booksDB), (err) => {
       if (err) {
         res.writeHead(500);
