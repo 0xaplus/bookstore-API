@@ -12,12 +12,34 @@ function createUser(req, res) {
     body.push(chunk);
   });
 
-  const parsedBody = Buffer.concat(body).toString();
-  res.on("end", () => {
+  req.on("end", () => {
+    const parsedBody = Buffer.concat(body).toString();
     const newUser = JSON.parse(parsedBody);
-
+  
     fs.readFile(usersDbPath, "utf-8", (err, data) => {
       const existingUsers = JSON.parse(data);
+      const lastUser = existingUsers[existingUsers.length - 1];
+      const newUserId = Number(lastUser.id) + 1;
+  
+      existingUsers.push({ ...newUser, id: newUserId });
+      fs.writeFile(usersDbPath, JSON.stringify(existingUsers), (err) => {
+        if (err) {
+          res.writeHead(500);
+          res.end(
+            JSON.stringify({
+              message: "Internal Server Error. Could not save book to database.",
+            })
+          );
+        }
+  
+        res.writeHead(201);
+        // res.end(JSON.stringify(newBook)); //For the tests
+        res.end(
+          JSON.stringify({
+            message: "User created successfully.",
+          })
+        );
+      });
     });
   });
 }
@@ -57,7 +79,6 @@ function authenticateUser(req, res) {
           user.password === loginDetails.password
       );
 
-      console.log(userFound);
       if (!userFound) {
         reject("User not found! Please sign up!");
       }
