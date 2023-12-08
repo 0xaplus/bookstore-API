@@ -37,7 +37,7 @@ function addNewBook(req, res) {
       );
     });
   });
-}
+};
 
 // READ
 function getAllBooks(req, res) {
@@ -48,7 +48,7 @@ function getAllBooks(req, res) {
     }
     res.end(books);
   });
-}
+};
 
 // UPDATE
 
@@ -94,7 +94,7 @@ function updateBook(req, res) {
       res.end(JSON.stringify(booksDB[bookIndex]));
     });
   });
-}
+};
 
 // DELETE
 function deleteBook(req, res) {
@@ -134,7 +134,7 @@ function deleteBook(req, res) {
       })
     );
   });
-}
+};
 
 function loanOrReturn(req, res, state) {
   let message, status, errorMessage;
@@ -185,17 +185,17 @@ function loanOrReturn(req, res, state) {
       );
     });
   });
-}
+};
 
 // lOANOUT
 function loanOut(req, res) {
   loanOrReturn(req, res, "loan");
-}
+};
 
 // RETURN
 function returnBook(req, res) {
   loanOrReturn(req, res, "return");
-}
+};
 
 module.exports = {
   getAllBooks,
