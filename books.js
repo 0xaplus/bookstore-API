@@ -30,11 +30,13 @@ function addNewBook(req, res) {
         );
       }
 
-      res.end(
-        JSON.stringify({
-          message: "Book added successfully.",
-        })
-      );
+      res.writeHead(201);
+      res.end(JSON.stringify(newBook)); //For the tests
+      // res.end(
+      //   JSON.stringify({
+      //     message: "Book added successfully.",
+      //   })
+      // );
     });
   });
 };
@@ -51,7 +53,6 @@ function getAllBooks(req, res) {
 };
 
 // UPDATE
-
 function updateBook(req, res) {
   const body = [];
   req.on("data", (chunk) => {
